@@ -1,0 +1,707 @@
+lcdf-typetools (2.108-2) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Jonas Smedegaard ]
+  * Tidy: Drop unused draft autopkgtool tests.
+  * Update watch file: Rewrite usage comment. Simplify regular expressions.
+
+  [ Hideki Yamane ]
+  * debian/test/*
+    - Deal with font location change in fonts-gfs-artemisia (Closes: #974090)
+  * debian/control
+    - Use dh13
+    - Set Standards-Version: 4.5.1
+    - Use https for Homepage: field
+  * debian/watch
+    - Also use https
+  * debian/rules
+    - Drop --with autoreconf
+    - Enable more hardening and buildflags
+  * Trim trailing whitespace.
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository, Repository-Browse.
+  * Add debian/salsa-ci.yml
+
+ -- Hideki Yamane <henrich@debian.org>  Sat, 28 Nov 2020 15:01:54 +0900
+
+lcdf-typetools (2.108-1) unstable; urgency=medium
+
+  [ upstream ]
+  * New release.
+
+  [ Jonas Smedegaard ]
+  * Add autopkgtest.
+  * Update copyright info:
+    + Extend coverage for main upstream author.
+    + Extend coverage of Autotools files.
+  * Fix suggest texlive-binaries,
+    and mention in long description its use with tool otftotfm.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Thu, 31 Jan 2019 03:47:57 +0100
+
+lcdf-typetools (2.107-1) unstable; urgency=medium
+
+  [ upstream ]
+  * New release.
+
+  [ Jonas Smedegaard ]
+  * Update watch file:
+    + Add usage comment (and drop other comments).
+    + Use substitution strings in version mangling.
+  * Simplify rules:
+    + Stop resolve build-dependencies in rules file.
+    + Stop resolve binary package relations in rules file.
+    + Use debhelper hint files.
+    + Do copyright-check in maintainer script (not during build).
+    + Use short-form dh sequencer.
+      Stop build-depend on cdbs.
+  * Update copyright info:
+    + Fix package name in repackaging note.
+    + Use https protocol in file format URL.
+    + Stop repackage: glyphlist.txt is freely licensed
+      (nowadays, if not always).
+    + Extend coverage for main upstream author.
+    + Extend coverage of autotools files.
+    + Track glyphlist.txt licensed Apache-2.0.
+    + Extend coverage of packaging.
+  * Stop build-depend on dh-buildinfo.
+  * Update Vcs-* fields: Maintenance moved to Salsa.
+  * Set Rules-Requires-Root: no.
+  * Relax to build-depend unversioned on libkpathsea-dev:
+    Needed version satisfied even in oldstable
+    (and maybe forever: Was released in 1994).
+  * Declare compliance with Debian Policy 4.3.0.
+  * Stop conflict with long gone package mminstance.
+    Stop mention mminstance in long description or README.Debian.
+  * Explain LCDF in long description.
+  * Fix strip obsolete reference to copyright file in README.Debian.
+  * Wrap and sort control file.
+  * Directly use glyphlist.txt shipped with aglfn
+    (skip redirect with symbolic link).
+    Recommend (not depend on) aglfn.
+  * Advertise DEP3 format in patch header.
+  * Drop obsolete lintian override regarding debhelper 9.
+  * Use dh-autoreconf.
+    Build-depend on (recent debhelper or) dh-autoreconf.
+  * Extend lintian overrides regarding License-Reference.
+  * Stop fallback-depend on ptex-bin:
+    Unneeded since (at least) oldstable.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Fri, 25 Jan 2019 16:38:30 +0100
+
+lcdf-typetools (2.106~dfsg-1) unstable; urgency=medium
+
+  [ upstream ]
+  * New release.
+    + Fix licensing of Adobe code and data.
+      Closes: Bug#694354. Thanks to bastien Roucaries.
+
+  [ Vasudev Kamath ]
+  * Bump watch version to 4 and simplify watch file.
+  * Add Files-Excluded section in copyright
+  * Add repacksuffix to watch file.
+  * Drop use of upstream-tarball.mk from CDBS.
+  * Fix the watch opts removing unnecessary opts.
+  * Mark fonts team as Maintainer of package
+  * Change my email Id in uploaders field.
+  * Mark package compliant with Debian policy 3.9.8
+  * Use secure https URL for Vcs-Git field.
+
+  [ Jonas Smedegaard ]
+  * Update copyright info:
+    + Fix cover libefont/t1fontskel.cc (previously containing unlicensed
+      part, but now licensed Apache-2.0.
+    + Extend coverage for main upstream author.
+    + Extend coverage of Debian packaging.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Thu, 22 Dec 2016 03:20:27 +0100
+
+lcdf-typetools (2.105~dfsg-2) unstable; urgency=medium
+
+  [ Vasudev Kamath ]
+  * Add patch 1002 to fix avoid long lines in otftotfm manpage.
+
+  [ Jonas Smedegaard ]
+  * Refresh patch 1002 with quilt shortening options.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Fri, 02 Oct 2015 16:36:41 +0200
+
+lcdf-typetools (2.105~dfsg-1) unstable; urgency=medium
+
+  [ upstream ]
+  * New release(s).
+    + Several crash fixes.
+    + otfinfo -g: Print all Unicode mappings for a glyph.
+    + t1lint: Support counter control hints.
+
+  * Update copyright info:
+    + Fix use common license shortname X11.
+    + Fix double-indent copyright holders.
+    + Rewrap licenses at 72 chars.
+    + Wrap before plural files and copyright holders.
+    + Merge identically licensed Files sections.
+    + Use License-Grant and License-Reference fields.
+      Thanks to Ben Finney.
+    + Fix list GAP license (verbatim different from GAP~Makefile.in).
+    + Fix list all GPL-2+ licensed files as such (not GPL-2).
+    + Use globbing in Files sections.
+    + Fix Upstream-Name.
+    + Extend coverage for myself. Add license grant to rules file.
+    + List issue tracker as preferred upstream contact.
+    + Extend coverage for main upstream authors.
+    + Extend coverage of autotools files.
+  * Add lintian override regarding license in License-Reference field.
+    See bug#786450.
+  * Bump debhelper compatibility level to 9.
+  * Add lintian override regarding debhelper 9.
+  * Drop patch 1001: Adopted upstream.
+  * Modernize git-buildpackage config: Avoid git- prefix.
+  * Install upstrem-renamed README.md.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Fri, 02 Oct 2015 14:46:48 +0200
+
+lcdf-typetools (2.104~dfsg-1) unstable; urgency=medium
+
+  [ upstream ]
+  * New release(s).
+
+  [ Vasudev Kamath ]
+  * Adopt package.
+    Closes: Bug#765323.
+  * Introduce Vcs-* fields.
+  * Convert packaging to CDBS.
+  * Add symlink to glyphs.txt from aglfn package
+  * Add patch 1001 to fix typo in t1reencode manpage.
+  * Rewrite copyright file using copyright format 1.0.
+    + Track copyright/licensing changes with CDBS.
+  * Update watch file to mangle debian version.
+
+  [ Jonas Smedegaard ]
+  * Add myself as uploader.
+  * Tidy CDBS packaging.
+  * Fix rewrite short description, and tidy long description slightly.
+  * Declare compliance with Debian Policy 3.9.6.
+  * Bump debhelper compatibility to 8: Needed debhelper provided even in
+    oldstable.
+  * Git-ignore quilt .pc dir, and tell git-buildpackage to use signed
+    tags and suppress eventual upstream .gitignore file.
+
+ -- Jonas Smedegaard <dr@jones.dk>  Sat, 25 Oct 2014 17:06:34 +0200
+
+lcdf-typetools (2.92+dfsg1-0.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Repackage without non-free glyphlist.txt, use aglfn package
+    instead (Closes: #694352)
+
+ -- Michael Stapelberg <stapelberg@debian.org>  Sun, 10 Feb 2013 14:30:07 +0100
+
+lcdf-typetools (2.92-2) unstable; urgency=low
+
+  * Bug fix: "Package description needs updating", thanks to Adrian Bunk
+    (Closes: #666988).
+  * Update Debian Standards-Version to 3.9.3.0 (no code changes).
+  * Add hardening directives.
+
+ -- C.M. Connelly <cmc@debian.org>  Sat, 30 Jun 2012 13:25:07 -0700
+
+lcdf-typetools (2.92-1) unstable; urgency=low
+
+  * New upstream release
+  * Adds support for larger and newer fonts.
+  * Improves glyph name mappings.
+
+ -- C.M. Connelly <cmc@debian.org>  Wed, 07 Sep 2011 11:38:32 -0700
+
+lcdf-typetools (2.88-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- C.M. Connelly <cmc@debian.org>  Thu, 14 Apr 2011 12:26:48 -0700
+
+lcdf-typetools (2.87-1) unstable; urgency=low
+
+  * New upstream release
+  * Fixes double-free error in t1testpage.
+
+ -- C.M. Connelly <cmc@debian.org>  Tue, 01 Feb 2011 18:09:00 -0800
+
+lcdf-typetools (2.86-1) unstable; urgency=low
+
+  * New upstream release
+  * Support version 4 of the OpenType OS/2 table
+
+ -- C.M. Connelly <cmc@debian.org>  Fri, 31 Dec 2010 00:11:51 -0800
+
+lcdf-typetools (2.85-1) unstable; urgency=low
+
+  * New upstream release
+  * Fixes otftotfm bug with glyphlist.txt mappings like I_J
+
+ -- C.M. Connelly <cmc@debian.org>  Mon, 08 Nov 2010 12:55:51 -0800
+
+lcdf-typetools (2.84-1) unstable; urgency=low
+
+  * New upstream release
+  * Fixes crashing with large fonts "and other odd situations".
+  * Includes new Unicode mappings for MSAM and MSBM glyph names.
+  * Fixes bugs in texglyphlist.txt Unicode mappings.
+  * Upgrade Standards-Version to 2.9.1 (no changes).
+
+ -- C.M. Connelly <cmc@debian.org>  Mon, 20 Sep 2010 10:33:59 -0700
+
+lcdf-typetools (2.83-1) unstable; urgency=low
+
+  * New upstream release
+  * Updates to kern-table handling in otftotfm; changes to bring code in
+    line with changes in TeX Live.
+  * Upgrade Standards-Version to 2.8.4 (no changes).
+  * Add debian/source/format (3.0 (quilt)) to satisfy new requirements.
+
+ -- C.M. Connelly <cmc@debian.org>  Wed, 02 Jun 2010 11:15:58 -0700
+
+lcdf-typetools (2.82-1) unstable; urgency=low
+
+  * New upstream release.
+  * otftotfm: Fixes em and ex measurements with TrueType fonts (from 2.81).
+  * otftotfm: Fixes handling of multiply encoded glyphs (glyphs in more
+    than one slot).
+
+ -- C.M. Connelly <cmc@debian.org>  Wed, 20 Jan 2010 01:19:30 -0800
+
+lcdf-typetools (2.80-1) unstable; urgency=low
+
+  * New upstream release.
+  * Adds additional options to otftotfm.
+
+ -- C.M. Connelly <cmc@debian.org>  Thu, 03 Dec 2009 13:01:37 -0800
+
+lcdf-typetools (2.79-1) unstable; urgency=low
+
+  * New upstream release.
+  * otftotfm: Add support for generic TrueType "kern" tables.
+  * ttftotype42: Split very large non-glyf tables.
+  * otfinfo: Add -T option to dump a table's contents to standard out.
+  * Update Standards-Version to 3.8.3 (no changes).
+
+ -- C.M. Connelly <cmc@debian.org>  Mon, 24 Aug 2009 23:46:25 -0700
+
+lcdf-typetools (2.78-1) unstable; urgency=low
+
+  * New upstream release.
+  * t1lint: Report warnings when a font charstring command has too many
+    arguments.
+  * Font library changes: correctly implement binary search in a couple
+    places -- unexpected sizes could lead to overflow and bad behavior.
+
+ -- C.M. Connelly <cmc@debian.org>  Mon, 06 Apr 2009 16:49:02 -0700
+
+lcdf-typetools (2.76-1) unstable; urgency=low
+
+  * New upstream release.
+  * Fixes some bugs with creating font instances that resulted in problems
+    with PDFs created using PDFTeX and viewed on Mac OS X.
+  * Adds support for some additional tests to t1lint to detect these
+    problems.
+  * Update Standards-Version to 3.8.1 (no code changes).
+
+ -- C.M. Connelly <cmc@debian.org>  Sat, 28 Mar 2009 01:07:41 -0700
+
+lcdf-typetools (2.74-1) unstable; urgency=low
+
+  * New upstream release.
+  * Fixes missing unistd.h bug in liblcdf found in 2.73.
+
+ -- C.M. Connelly <cmc@debian.org>  Wed, 18 Feb 2009 12:06:45 -0800
+
+lcdf-typetools (2.73-1) UNRELEASED; urgency=low
+
+  * New upstream release; with bug reported to upstream.
+
+ -- C.M. Connelly <cmc@debian.org>  Mon, 16 Feb 2009 10:01:03 -0800
+
+lcdf-typetools (2.71-2) unstable; urgency=low
+
+  * debian/watch: Add file to please lintian (and make QA happier, too).
+  * debian/compat: Update debhelper compatibility mode to 7.
+  * debian/control: Update dependency on debhelper to please lintian.
+
+ -- C.M. Connelly <cmc@debian.org>  Wed, 27 Aug 2008 15:11:16 -0700
+
+lcdf-typetools (2.71-1) UNRELEASED; urgency=low
+
+  * (NOT RELEASED YET) New upstream release
+  * Adds new t1rawafm for creating ligature- and kerning-table--free AFM
+    files from PFA or PFB font files.
+  * debian/control: Add mention of t1rawafm.
+  * Fixes some bugs in otftotfm.  (See NEWS file for slightly more
+    detail.)
+
+ -- C.M. Connelly <cmc@debian.org>  Wed, 27 Aug 2008 10:50:38 -0700
+
+lcdf-typetools (2.69-1) unstable; urgency=low
+
+  * New upstream release; addresses font-name construction and ligature
+    sorting in otfotfm.
+  * Update Standards-Version to 3.8.0 (no code changes).
+  * Update Recommends to match current TeX systems.
+  * Update date in copyright file.
+
+ -- C.M. Connelly <cmc@debian.org>  Sun, 20 Jul 2008 01:44:02 -0700
+
+lcdf-typetools (2.66-2) unstable; urgency=low
+
+  * Fix lintian warnings by dropping unneeded dependency on dpatch.
+  * Update Standards-Version to 3.7.3 (no code changes necessary).
+  * Add Homepage field to debian/control.
+  * Put debian/rules into the public domain.
+
+ -- C.M. Connelly <cmc@debian.org>  Mon, 07 Jan 2008 22:24:46 -0800
+
+lcdf-typetools (2.66-1) unstable; urgency=low
+
+  * New upstream release.
+  * Update Standards-Version to 3.7.2.2 (no code changes).
+
+ -- C.M. Connelly <cmc@debian.org>  Mon, 03 Sep 2007 02:03:46 -0700
+
+lcdf-typetools (2.62-2) unstable; urgency=low
+
+  * Remove unneeded Build-Depends on libkpathsea4-dev.  Closes: #429678.
+
+ -- C.M. Connelly <cmc@debian.org>  Tue, 19 Jun 2007 19:19:03 -0700
+
+lcdf-typetools (2.62-1) unstable; urgency=low
+
+  * New upstream release.  Closes: #388047.
+
+ -- C.M. Connelly <cmc@debian.org>  Mon, 11 Jun 2007 22:29:11 -0700
+
+lcdf-typetools (2.60-1) experimental; urgency=low
+
+  * New upstream release.
+
+ -- C.M. Connelly <cmc@debian.org>  Thu,  1 Mar 2007 14:41:16 -0800
+
+lcdf-typetools (2.56-1) experimental; urgency=low
+
+  * New upstream release.
+  * Uploading to experimental due to freeze.
+
+ -- C.M. Connelly <cmc@debian.org>  Mon, 19 Feb 2007 14:42:44 -0800
+
+lcdf-typetools (2.46-2) UNRELEASED; urgency=low
+
+  * New upstream release.
+  * Not built for upload (due to freeze).
+
+ -- Claire Connelly <cmc@debian.org>  Wed,  8 Nov 2006 21:12:05 -0800
+
+lcdf-typetools (2.46-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- C.M. Connelly <cmc@debian.org>  Wed,  8 Nov 2006 20:03:39 -0800
+
+lcdf-typetools (2.45-1) unstable; urgency=low
+
+  * New upstream release
+  * Add Recommends to debian/control for tetex-bin, ptex, or
+    texlive-font-utils.  It turns out that otftotfm (at least) depends on
+    some of the TeX programs to do its work.  These three packages all
+    provide the necessary TeX programs in some form. (Closes: #389737)
+
+ -- C.M. Connelly <cmc@debian.org>  Thu,  5 Oct 2006 11:44:53 -0700
+
+lcdf-typetools (2.44-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control: Update policy version.
+
+ -- C.M. Connelly <cmc@debian.org>  Sun, 17 Sep 2006 14:14:02 -0700
+
+lcdf-typetools (2.37-1) UNRELEASED; urgency=low
+
+  * (NOT RELEASED YET) New upstream release
+  * Add dependency on libkpathsea4-dev (Closes: #357266) and rebuild
+    against libkpathsea4
+
+ -- C.M. Connelly <cmc@debian.org>  Mon, 20 Mar 2006 14:38:44 -0800
+
+lcdf-typetools (2.36-1) unstable; urgency=low
+
+  * New upstream release.
+  * Some upstream bugfixes and feature additions.  See NEWS for details.
+  * Fix Lintian issues with otftotfm.1 manpage via dpatch (patches to be
+    submitted upstream).
+
+ -- C.M. Connelly <cmc@debian.org>  Mon,  2 Jan 2006 12:23:33 -0800
+
+lcdf-typetools (2.35-1) unstable; urgency=low
+
+  * New upstream release.
+  * Removes mminstance pseudopackage (Closes: #322056).
+  * Not uploaded.
+
+ -- C.M. Connelly <cmc@debian.org>  Thu, 29 Dec 2005 21:12:38 -0800
+
+lcdf-typetools (2.34-1) unstable; urgency=low
+
+  * New upstream release
+  * Post-sarge release
+  * Adds various fixes and features; see upstream NEWS file for details
+
+ -- C.M. Connelly <cmc@debian.org>  Tue, 19 Jul 2005 14:51:52 -0700
+
+lcdf-typetools (2.26-1) unstable; urgency=low
+
+  * New upstream release
+  * Fixes crash in otftotfm with Minion Pro and some other newer OpenType
+    fonts.
+
+ -- C.M. Connelly <cmc@debian.org>  Sun, 17 Apr 2005 19:41:17 -0700
+
+lcdf-typetools (2.25-1) UNRELEASED; urgency=low
+
+  * New upstream release
+  * ChangeLog: Removed upstream.
+  * debian/rules: Fix to remove nonexistent ChangeLog file inclusion.
+
+ -- C.M. Connelly <cmc@debian.org>  Sun, 17 Apr 2005 19:21:11 -0700
+
+lcdf-typetools (2.22-4) unstable; urgency=low
+
+  * debian/rules: Add ``-a'' flag to calls in binary-arch to stop
+    binary-arch from building binary-indep.  Thanks to Santiago Vila for
+    actually explaining how this stuff works to me.  (Closes: #299559)
+
+ -- C.M. Connelly <cmc@debian.org>  Thu, 14 Apr 2005 17:57:24 -0700
+
+lcdf-typetools (2.22-3) unstable; urgency=low
+
+  * Rebuild to replace upload with one without an included tar file.
+    (More docs for svn-buildpackage needed?)
+
+ -- C.M. Connelly <cmc@debian.org>  Wed,  6 Apr 2005 17:32:22 -0700
+
+lcdf-typetools (2.22-2) unstable; urgency=low
+
+  * debian/rules: Use binary-indep target to build mminstance dummy
+    package. (Closes: #299559)
+
+ -- C.M. Connelly <cmc@debian.org>  Wed, 16 Mar 2005 17:37:25 -0800
+
+lcdf-typetools (2.22-1) unstable; urgency=low
+
+  * New upstream release
+  * Bug fix: "lcdf-typetools: ligkern command in otftotfm disables en and
+    em dashes", thanks to Christopher Swingley (Closes: #297946).
+  * Bug fix: "lcdf-typetools: FTBFS (amd64/gcc-4.0): 'void* operator
+    new(size_t, void*)' may not be declared as static", thanks to Andreas
+    Jochens (Closes: #287372).
+
+ -- C.M. Connelly <cmc@debian.org>  Sun,  6 Mar 2005 23:17:23 -0800
+
+lcdf-typetools (2.17-1) unstable; urgency=low
+
+  * New upstream release
+  * debian/control: Include mminstance dummy package to phase out
+    mminstance package (long replaced by lcdf-typetools).  Thanks to
+    Tellico/Bookcase for showing the way.
+  * debian/control: Modify description of package.
+  * Adds t1reencode program.
+  * otftotfm: Add --output-encoding option.
+  * t1lint: Check that UniqueID and XUID values are in range.
+
+ -- C.M. Connelly <cmc@debian.org>  Fri, 14 Jan 2005 14:49:19 -0800
+
+lcdf-typetools (2.16-1) unstable; urgency=low
+
+  * New upstream release
+  * Clarify use of --include-alternatives/--exclude-alternatives options
+    (only apply to features that appear later in the options list)
+  * Fix bug where not all --altselector-feature features would be used
+  * Add --clear-alternates option
+  * AIX compile fixes (2.15)
+  * Add RPM specfile (2.15)
+  * Stop including our manpage patches (fixed upstream)
+
+ -- C.M. Connelly <cmc@debian.org>  Sat, 11 Dec 2004 13:22:28 -0800
+
+lcdf-typetools (2.14-1) unstable; urgency=low
+
+  * New upstream release
+  * Compile fixes for IRIX (2.14)
+  * otftotfm: Adds --enable-selfauto-loc for use with SELFAUTODIR TeX
+    configurations
+
+ -- C.M. Connelly <cmc@debian.org>  Sun, 19 Sep 2004 15:17:06 -0700
+
+lcdf-typetools (2.12-1) unstable; urgency=low
+
+  * New upstream release
+  * otftotfm supports version 1.1 of the TeX Directory Structure (see
+    <http://www.tug.org/tds/>
+
+ -- C.M. Connelly <cmc@debian.org>  Wed,  8 Sep 2004 16:34:26 -0700
+
+lcdf-typetools (2.6-2) unstable; urgency=low
+
+  * debian/control: Add dpatch to Build-Depends (Closes: #263172)
+
+ -- C.M. Connelly <cmc@debian.org>  Thu,  5 Aug 2004 09:00:37 -0700
+
+lcdf-typetools (2.6-1) unstable; urgency=low
+
+  * New upstream release
+  * Fix off-by-one encoding bug (2.4)
+  * Update for GCC 3.4 compatiblility (2.5)
+  * Bug fix: "lcdf-typetools: FTBFS with gcc-3.4: `_hm' undeclared (first
+    use this function)", thanks to Andreas Jochens (Closes: #259021).
+  * Adds --smoke option to t1testpage (2.6)
+  * debian/control: Updated descriptions of included programs
+  * debian/rules: Add dpatch support to fix hyphen/dash issues with
+    manpages (patches forwarded upstream)
+
+ -- C.M. Connelly <cmc@debian.org>  Tue,  3 Aug 2004 01:00:32 -0700
+
+lcdf-typetools (2.3-1) unstable; urgency=low
+
+  * New upstream release
+  * otftotfm will complete successfully even if t1dotlessj does not (2.2)
+  * otftotfm adds '--default-ligkern' option (2.3)
+
+ -- C.M. Connelly <cmc@debian.org>  Sun,  4 Jul 2004 19:13:34 -0700
+
+lcdf-typetools (2.1-1) unstable; urgency=low
+
+  * New upstream release
+  * Improved otftotfm documentation
+
+ -- C.M. Connelly <cmc@debian.org>  Mon,  3 May 2004 16:41:00 -0700
+
+lcdf-typetools (2.0-1) unstable; urgency=low
+
+  * New upstream release
+  * Fixes problems with binary files under Windows
+
+ -- C.M. Connelly <cmc@debian.org>  Thu, 25 Mar 2004 17:12:12 -0800
+
+lcdf-typetools (1.99-1) unstable; urgency=low
+
+  * New upstream release
+  * Fixes an otftotfm assertion failure
+  * Adds support for a constructed 'SSsmall' character to otftotfm (1.98)
+
+ -- C.M. Connelly <cmc@debian.org>  Tue,  2 Mar 2004 09:20:59 -0800
+
+lcdf-typetools (1.97-1) unstable; urgency=low
+
+  * New upstream release
+  * Fixes cfftot1 bug on fonts with supplemental encodings
+
+ -- C.M. Connelly <cmc@debian.org>  Thu, 19 Feb 2004 21:14:27 -0800
+
+lcdf-typetools (1.96-1) unstable; urgency=low
+
+  * New upstream release
+  * Otftotfm can call t1dotlessj automatically when required
+
+ -- C.M. Connelly <cmc@debian.org>  Sun, 25 Jan 2004 23:06:37 -0800
+
+lcdf-typetools (1.90-1) unstable; urgency=low
+
+  * New upstream release
+  * Adds t1dotlesj
+  * Fixes mmpfb problems present since 1.65
+
+ -- C.M. Connelly <cmc@debian.org>  Mon, 29 Dec 2003 15:43:28 -0800
+
+lcdf-typetools (1.88-1) unstable; urgency=low
+
+  * New upstream release
+  * More changes to ofttotfm, including bug fixes, better support for
+    PDFTeX, and alternate glyphs
+
+ -- C.M. Connelly <cmc@debian.org>  Thu, 25 Dec 2003 15:34:46 -0800
+
+lcdf-typetools (1.80-1) unstable; urgency=low
+
+  * New upstream release
+  * Adds --min-kern option to otftotfm (v. 1.70)
+  * cfftot1 handles hintmask as first operator in a Type 2 charstring
+    (v. 1.75)
+  * Adds --altselector-char, --include-alternates, and
+    --exclude-alternates options to otftotfm
+
+ -- C.M. Connelly <cmc@debian.org>  Mon,  8 Dec 2003 10:02:46 -0800
+
+lcdf-typetools (1.67-1) unstable; urgency=low
+
+  * New upstream release
+  * Otftotfm includes default ligatures when there aren't any
+  * Virtual fonts work correctly (FONTDSIZE specified)
+
+ -- C.M. Connelly <cmc@debian.org>  Sat, 29 Nov 2003 13:47:31 -0800
+
+lcdf-typetools (1.60-1) unstable; urgency=low
+
+  * New upstream release
+  * cfftot1: can now handle fonts with the seac operator
+
+ -- C.M. Connelly <cmc@debian.org>  Mon, 13 Oct 2003 17:37:17 -0700
+
+lcdf-typetools (1.52-3) unstable; urgency=low
+
+  * Fix libkpathsea build-dependency, which should actually be on
+    libkpathsea-dev (closes: #210495)
+
+ -- C.M. Connelly <cmc@debian.org>  Sat, 13 Sep 2003 20:18:05 -0700
+
+lcdf-typetools (1.52-2) unstable; urgency=low
+
+  * Add libkpathsea3 to Build-Depends (closes: #210495)
+
+ -- C.M. Connelly <cmc@debian.org>  Thu, 11 Sep 2003 17:58:29 -0700
+
+lcdf-typetools (1.52-1) unstable; urgency=low
+
+  * New upstream release
+  * Adds a --design-size option to otftotfm
+  * Adds a manpage for t1testpage
+  * Approved for general distribution by upstream (closes: #198564)
+
+ -- C.M. Connelly <cmc@debian.org>  Thu,  4 Sep 2003 11:51:02 -0700
+
+lcdf-typetools (1.50-1) unstable; urgency=low
+
+  * New upstream release
+  * Incorporates mminstance programs (mmafm, mmpfb)
+
+ -- C.M. Connelly <cmc@debian.org>  Tue,  2 Sep 2003 23:46:18 -0700
+
+lcdf-typetools (0.53-1) unstable; urgency=low
+
+  * New upstream release
+  * See upstream NEWS file for details
+
+ -- C.M. Connelly <cmc@debian.org>  Tue,  2 Sep 2003 23:31:43 -0700
+
+lcdf-typetools (0.18-1) unstable; urgency=low
+
+  * New upstream release
+  * See upstream NEWS file for details
+
+ -- C.M. Connelly <cmc@debian.org>  Thu, 17 Jul 2003 10:08:51 -0700
+
+lcdf-typetools (0.15-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- C.M. Connelly <cmc@debian.org>  Sat,  5 Jul 2003 11:48:19 -0700
+
+lcdf-typetools (0.9-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- C.M. Connelly <cmc@debian.org>  Wed, 25 Jun 2003 23:45:36 -0700

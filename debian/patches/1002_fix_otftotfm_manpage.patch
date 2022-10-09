@@ -1,0 +1,17 @@
+Description: Adjust the long lines
+ This patch fixes "unable to adjust line" lintian warning in
+ otftotfm man pages.
+Author: Vasudev Kamath <kamathvasudev@gmail.com>
+Last-Update: 2015-09-01
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/otftotfm/otftotfm.1
++++ b/otftotfm/otftotfm.1
+@@ -132,6 +132,7 @@
+ l	l	l	.
+ \fBFile type\fR	\fBDirectory\fR	\fBFilename\fR
+ TFM	TEXMF/fonts/tfm/\fIvendor\fR/\fItypeface\fR/	\fItexname\fR[\-\-base].tfm
++.ad l
+ VF	TEXMF/fonts/vf/\fIvendor\fR/\fItypeface\fR/	\fItexname\fR.vf
+ PL	TEXMF/fonts/pl/\fIvendor\fR/\fItypeface\fR/	\fItexname\fR[\-\-base].pl
+ VPL	TEXMF/fonts/vpl/\fIvendor\fR/\fItypeface\fR/	\fItexname\fR.vpl

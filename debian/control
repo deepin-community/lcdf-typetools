@@ -1,0 +1,83 @@
+Source: lcdf-typetools
+Section: text
+Priority: optional
+Maintainer: Debian Fonts Task Force <pkg-fonts-devel@lists.alioth.debian.org>
+Uploaders:
+ Jonas Smedegaard <dr@jones.dk>,
+ Vasudev Kamath <vasudev@copyninja.info>,
+Build-Depends:
+ aglfn,
+ debhelper-compat (= 13),
+ libkpathsea-dev,
+Standards-Version: 4.5.1
+Homepage: https://www.lcdf.org/type/
+Vcs-Git: https://salsa.debian.org/fonts-team/lcdf-typetools.git
+Vcs-Browser: https://salsa.debian.org/fonts-team/lcdf-typetools
+Rules-Requires-Root: no
+
+Package: lcdf-typetools
+Architecture: any
+Depends:
+ ${misc:Depends},
+ ${shlibs:Depends},
+Recommends:
+ aglfn,
+ texlive-font-utils,
+Suggest:
+ texlive-binaries,
+Description: tools for OpenType, multiple-master, and Type 1 fonts
+ LCDF Typetools comprises several programs
+ for manipulating PostScript Type 1, Type 1 multiple master,
+ and OpenType fonts.
+ .
+ Programs to manipulate OpenType, multiple-master, and Type 1 fonts:
+ .
+  * cfftot1
+    allows you to translate Compact Font Format (CFF)
+    or PostScript-flavored OpenType fonts
+    into PostScript Type 1 font format.
+  * otfinfo
+    reports information about OpenType fonts,
+    such as the features they support.
+    and the contents of their "size" optical size option
+  * otftotfm
+    allows you to create TeX font metrics and encodings
+    for using PostScript-flavored OpenType fonts.
+    NB! This tool requires the additional package texlive-binaries.
+  * t1dotlessj
+    creates a Type 1 font with a single character --
+    the dotless j corresponding to the specified design.
+  * t1lint
+    checks a Type 1 font for correctness
+    (preliminary).
+  * t1rawafm
+    generates a "raw" (kernless and ligatureless) AFM file
+    given a font file (PFB/PFA).
+  * t1reencode
+    changes a PostScript Type 1 font embedded encoding.
+  * t1testpage
+    creates a PostScript test page for a specified font file
+    (preliminary).
+  * ttftotype42
+    converts TrueType or TrueType-flavored OpenType font programs
+    into PostScript Type 42 format.
+ .
+ LCDF-TypeTools also includes the multiple-master font tools
+ allowing you to use multiple-master fonts
+ with programs that require single-master fonts
+ (afm2tfm, ps2pk, fontinst, etc.).
+ Both programs work fine with fonts
+ that contain intermediate masters
+ (e.g., Adobe Jenson MM and Adobe Kepler MM).
+ .
+  * mmafm
+    creates an AFM (Adobe font metric) file
+    corresponding to a single instance of a multiple-master font.
+    It reads (and therefore requires) the AMFM and AFM files
+    distributed with the font.
+  * mmpfb
+    creates a normal, single-master font program
+    that looks like an instance of a multiple-master font.
+    It reads the multiple-master font program in PFA or PFB format.
+ .
+ LCDF stands for Little Cambridgeport Design Factory.

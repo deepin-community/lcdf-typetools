@@ -1,0 +1,12 @@
+Test-Command: prove debian/tests/*.t
+Depends:
+ @,
+ fonts-font-awesome,
+ fonts-gfs-artemisia (>= 1.1-6),
+ fonts-urw-base35,
+ gsfonts,
+ libtest-command-simple-perl,
+ libtest-tempdir-tiny-perl,
+ perl,
+ texlive-base,
+ texlive-binaries,

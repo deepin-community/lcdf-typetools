@@ -1,0 +1,25 @@
+lcdf-typetools for Debian
+-------------------------
+
+This package contains software-in-progress, as a result,
+some of the individual programs' functionality and interfaces
+may change from version to version.
+
+As always, be sure to keep backups of your fonts.
+Read the upstream NEWS file and ChangeLog
+for more information about changes to the programs.
+
+If you need the metric files for your Adobe multiple-master fonts,
+they are available from Eddie Kohler's site.
+As the metrics are non-free,
+they cannot be distributed by Debian.
+(Eddie made an arrangement to redistribute the metrics on his site;
+if there's demand,
+I can try to make a similar arrangement with Adobe
+so that we can make the metrics available as a Debian package
+(in non-free or contrib).)
+
+ -- C.M. Connelly <cmc@debian.org>, Mon Dec  8 10:06:31 2003
+
+
+
